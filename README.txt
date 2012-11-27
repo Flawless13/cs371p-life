@@ -11,11 +11,11 @@ E-mail: sas@fsullivans.net
 Estimated number of hours: 15
 Actual    number of hours:
 
-Partner First Name:
-Partner Last Name:
-Partner EID:
-Partner E-mail:
-Partner Estimated number of hours:
+Partner First Name: Joseph
+Partner Last Name: Mangieri
+Partner EID: jm27672
+Partner E-mail: joeymangieri@gmail.com
+Partner Estimated number of hours: 12
 Partner Actual    number of hours:
 
 Turnin CS Username: sas5294
