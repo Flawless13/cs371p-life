@@ -61,15 +61,15 @@ class FredkinCell : public AbstractCell
     return change_r == 0 || change_c == 0;
   }
 
-  void print(ostream& w = cout)
+  char print()
   {
     if(this->alive)
       if(this->age < 10)
-        w << this->age;
+        return '0' + this->age;
       else
-        w << "+";
+        return '+';
     else
-      w << "-";
+      return '-';
   }
 };
 

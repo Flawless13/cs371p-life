@@ -62,17 +62,12 @@ int main ()
       Print grid.
     */
 
-    ifstream in("RunLifeConway.in");
-    streambuf *cinbuf = cin.rdbuf(); //save old buf
-    cin.rdbuf(in.rdbuf()); //redirect cin to RunLifeConway.in
+    ifstream in_file;
+    in_file.open ("RunLifeConway.in");
+    ofstream out_file;
+    out_file.open ("RunLifeConway.out");
 
-    ofstream out("RunLifeConway.out");
-    streambuf *coutbuf = cout.rdbuf(); //save old buf
-    cout.rdbuf(out.rdbuf()); //redirect cout to RunLifeConway.out
-
-    cout << "*** Life<ConwayCell> 109x69 ***" << endl << endl;
-
-    Life<ConwayCell> life(cin, cout);
+    Life<ConwayCell> life(in_file, out_file);
     life.print(0);
     life.step(283);
     life.print(283);
@@ -80,9 +75,6 @@ int main ()
     life.print(323);
     life.step(2500);
     life.print(2823);
-    
-    cin.rdbuf(cinbuf);   //reset to standard input again
-    cout.rdbuf(coutbuf); //reset to standard output again
   }
   catch (const invalid_argument&) 
   {
@@ -105,27 +97,19 @@ int main ()
       Simulate 2 moves.
       Print every grid.
     */
-    ifstream in("RunLifeFredkin.in");
-    streambuf *cinbuf = cin.rdbuf(); //save old buf
-    cin.rdbuf(in.rdbuf()); //redirect cin to RunLifeFredkin.in
 
-    ofstream out("RunLifeFredkin.out");
-    streambuf *coutbuf = cout.rdbuf(); //save old buf
-    cout.rdbuf(out.rdbuf()); //redirect cout to RunLifeFredkin.out
+    ifstream in_file;
+    in_file.open ("RunLifeFredkin.in");
+    ofstream out_file;
+    out_file.open ("RunLifeFredkin.out");
 
-    cout << "*** Life<FredkinCell> 20x20 ***" << endl << endl;
-
-    Life<FredkinCell> life(cin, cout);
+    Life<FredkinCell> life(in_file, out_file);
     life.print(0);
     for(int i = 0; i < 2; i++)
     {
       life.step(1);
       life.print(i + 1);
     }
-    
-    cin.rdbuf(cinbuf);   //reset to standard input again
-    cout.rdbuf(coutbuf); //reset to standard output again
-    
   }
   catch (const invalid_argument&) 
   {
@@ -149,26 +133,18 @@ int main ()
       Print every grid.
     */
 
-    ifstream in("RunLife.in");
-    streambuf *cinbuf = cin.rdbuf(); //save old buf
-    cin.rdbuf(in.rdbuf()); //redirect cin to RunLife.in
+    ifstream in_file;
+    in_file.open ("RunLife.in");
+    ofstream out_file;
+    out_file.open ("RunLife.out");
 
-    ofstream out("RunLife.out");
-    streambuf *coutbuf = cout.rdbuf(); //save old buf
-    cout.rdbuf(out.rdbuf()); //redirect cout to RunLife.out
-
-    cout << "*** Life<Cell> 20x20 ***" << endl << endl;
-
-    Life<Cell> life(cin, cout);
+    Life<Cell> life(in_file, out_file);
     life.print(0);
     for(int i = 0; i < 5; i++)
     {
       life.step(1);
       life.print(i + 1);
     }
-
-    cin.rdbuf(cinbuf);   //reset to standard input again
-    cout.rdbuf(coutbuf); //reset to standard output again
   }
   catch (const invalid_argument&) 
   {

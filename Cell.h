@@ -30,9 +30,9 @@ class Cell
     alive = cell_pointer->alive;
   }
 
-  void print(ostream& w = cout)
+  char print()
   {
-    cell_pointer->print(w);
+    return cell_pointer->print();
   }
 
   void evolve(int alive_neighbors)

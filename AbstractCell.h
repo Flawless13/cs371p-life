@@ -12,12 +12,11 @@ class AbstractCell
 
   bool alive;
 
-  virtual void print(ostream& w = cout) {};
-  virtual void evolve(int alive_neighbors) {};
+  virtual char print() = 0;
+  virtual void evolve(int alive_neighbors) = 0;
   virtual AbstractCell* clone() = 0;
-  virtual void change_state(char c) {};
+  virtual void change_state(char c) = 0;
   virtual bool neighbors_contains(int change_r, int change_c) = 0;
-  virtual ~AbstractCell() {};
 };
 
 #endif

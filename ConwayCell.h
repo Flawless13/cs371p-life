@@ -48,12 +48,12 @@ class ConwayCell : public AbstractCell
     return true;
   }
 
-  void print(ostream& w = cout)
+  char print()
   {
     if(this->alive)
-      w << "*";
+      return '*';
     else
-      w << ".";
+      return '.';
   }
 };
 

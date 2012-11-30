@@ -1,7 +1,8 @@
 #include <cstdlib>
-#include <iostream>  // endl, istream, ostream
+#include <fstream>  // endl, istream, ostream
 #include <string>    // strings for names
 #include <vector>    // vector
+#include <typeinfo>
 
 #include "Cell.h"
 #include "AbstractCell.h"
@@ -18,11 +19,14 @@ class Life
   int rows;
   int cols;
   int population;
+  ofstream& out_file;
 
   public:
   
-  Life(istream& r = cin, ostream& w = cout)
+  Life(ifstream& r, ofstream& w, bool running = false) : 
+    out_file(w)
   {
+
     char next;
     population = 0;
 
@@ -41,6 +45,17 @@ class Life
         r >> next;
         _grid[i][j].change_state(next);
       }
+
+    update_neighbors();
+    if(running)
+    {
+      string temp = typeid(_grid[0][0]).name();
+      string type_t = "";
+      for(int i = 0; i < (int)temp.length(); i++)
+        if(!isdigit(temp[i]))
+          type_t += temp[i];
+      out_file << "*** Life<" << type_t << "> " << rows << "x" << cols << " ***" << endl << endl;
+    }
   }
 
   void update_neighbors()
@@ -68,22 +83,22 @@ class Life
   {
     for(int x = 0; x < steps; x++)
     {
-      update_neighbors();
       for(int i = 0; i < rows; i++)
         for(int j = 0; j < cols; j++)
           _grid[i][j].evolve(neighbor_count[i][j]);
+      update_neighbors();
     }
   }
 
-  void print(int generation, ostream& w = cout)
+  void print(int generation)
   {
-    w << "Generation = " << generation << ", Population = " << population <<  "." << endl;
+    out_file << "Generation = " << generation << ", Population = " << population <<  "." << endl;
     for(int i = 0; i < rows; i++)
     {
       for(int j = 0; j < cols; j++)
-        _grid[i][j].print(w);
-      w << endl;
+        out_file << _grid[i][j].print();
+      out_file << endl;
     }
-    w << endl;
+    out_file << endl;
   }
 };
