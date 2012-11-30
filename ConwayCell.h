@@ -14,12 +14,12 @@ class ConwayCell : public AbstractCell
 
   ConwayCell()
   {
-    this->alive = false;
+    this->alive_bool = false;
   }
 
   ConwayCell(const ConwayCell* const ac)
   {
-    this->alive = ac->alive;
+    this->alive_bool = ac->alive_bool;
   }
 
   AbstractCell* clone()
@@ -30,17 +30,17 @@ class ConwayCell : public AbstractCell
   void change_state(char c)
   {
     if('.' == c)
-      this->alive = false;
+      this->alive_bool = false;
     else
-      this->alive = true;
+      this->alive_bool = true;
   }
 
   void evolve(int alive_neighbors)
   {
-    if(!this->alive && alive_neighbors == 3)
-      this->alive = true;
-    else if(this->alive && (alive_neighbors < 2 || alive_neighbors > 3))
-      this->alive = false;
+    if(!this->alive_bool && alive_neighbors == 3)
+      this->alive_bool = true;
+    else if(this->alive_bool && (alive_neighbors < 2 || alive_neighbors > 3))
+      this->alive_bool = false;
   }
 
   bool neighbors_contains(int change_r, int change_c)
@@ -50,7 +50,7 @@ class ConwayCell : public AbstractCell
 
   char print()
   {
-    if(this->alive)
+    if(this->alive_bool)
       return '*';
     else
       return '.';

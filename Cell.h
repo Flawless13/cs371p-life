@@ -16,8 +16,6 @@ class Cell
 
   public:
 
-  bool alive;
-
   Cell()
   {
     FredkinCell fc;
@@ -27,7 +25,6 @@ class Cell
   Cell(const Cell& c)
   {
     cell_pointer = c.cell_pointer->clone();
-    alive = cell_pointer->alive;
   }
 
   char print()
@@ -41,7 +38,6 @@ class Cell
     FredkinCell* fc = dynamic_cast<FredkinCell*>(cell_pointer);
     if(fc != 0 && fc->age == 2)
       change_state('*');
-    alive = cell_pointer->alive;
   }
 
   void change_state(char c)
@@ -54,7 +50,11 @@ class Cell
       cell_pointer = cc.clone();
     }
     cell_pointer->change_state(c);
-    this->alive = cell_pointer->alive;
+  }
+
+  bool alive()
+  {
+    return cell_pointer->alive();
   }
 
   bool neighbors_contains(int change_r, int change_c)

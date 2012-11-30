@@ -66,7 +66,7 @@ class Life
     population = 0;
     for(int i = 0; i < rows; i++)
       for(int j = 0; j < cols; j++)
-        if(_grid[i][j].alive)
+        if(_grid[i][j].alive())
         {
           ++population;
           for(int x = -1; x <= 1; x++)

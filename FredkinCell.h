@@ -17,12 +17,12 @@ class FredkinCell : public AbstractCell
   FredkinCell()
   {
     this->age = 0;
-    this->alive = false;
+    this->alive_bool = false;
   }
 
   FredkinCell(const FredkinCell* const ac)
   {
-    this->alive = ac->alive;
+    this->alive_bool = ac->alive_bool;
     this->age = ac->age;
   }
 
@@ -35,11 +35,11 @@ class FredkinCell : public AbstractCell
   {
     if('-' == c)
     {
-      this->alive = false;
+      this->alive_bool = false;
     }
     else
     {
-      this->alive = true;
+      this->alive_bool = true;
       if(c >= '0' && c <= '9')
         this->age = c - '0';
     }
@@ -47,12 +47,12 @@ class FredkinCell : public AbstractCell
 
   void evolve(int alive_neighbors)
   {
-    bool temp = this->alive;
-    if(!this->alive && (alive_neighbors == 1 || alive_neighbors == 3))
-      this->alive = true;
-    else if(this->alive && (alive_neighbors == 0 || alive_neighbors == 2 || alive_neighbors == 4))
-      this->alive = false;
-    if(temp && this->alive)
+    bool temp = this->alive_bool;
+    if(!this->alive_bool && (alive_neighbors == 1 || alive_neighbors == 3))
+      this->alive_bool = true;
+    else if(this->alive_bool && (alive_neighbors == 0 || alive_neighbors == 2 || alive_neighbors == 4))
+      this->alive_bool = false;
+    if(temp && this->alive_bool)
       ++this->age;
   }
 
@@ -63,7 +63,7 @@ class FredkinCell : public AbstractCell
 
   char print()
   {
-    if(this->alive)
+    if(this->alive_bool)
       if(this->age < 10)
         return '0' + this->age;
       else

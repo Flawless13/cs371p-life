@@ -7,7 +7,7 @@
 /*
 To run the program:
     % g++ -pedantic -std=c++0x -Wall RunLife.c++ -o RunLife.c++.app
-    % valgrind RunLife.c++.app > RunLife.out
+    % valgrind RunLife.c++.app
 
 To configure Doxygen:
     doxygen -g
