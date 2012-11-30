@@ -1,35 +1,59 @@
+commit 522a52e531ae40bd59218cf24e1608ed3a6800a6
+Author: joeyman <joeymangieri@gmail.com>
+Date:   Thu Nov 29 19:35:56 2012 -0600
+
+    Adding acceptance tests
+
+commit e1b16487e9dd1c2ecc0020336dbeb9a5b970f735
+Author: Spencer Sullivan <sas@fsullivans.net>
+Date:   Thu Nov 29 18:30:33 2012 -0600
+
+    Changed alive from just a datamember to a method
+
+commit 24f786528460c8df0c8ed8a6b241d4fc10f6a518
+Author: Spencer Sullivan <sas@fsullivans.net>
+Date:   Thu Nov 29 18:06:47 2012 -0600
+
+    fixed some bugs with printing
+
+commit d368fe9d1daf2190bb972f2d74bb7e03f79327a5
+Author: Spencer Sullivan <sas@fsullivans.net>
+Date:   Mon Nov 26 20:04:34 2012 -0600
+
+    updated the log file
+
 commit 774ca0d5a6e33a4b56df1815f228cabaa8658384
 Author: Spencer Sullivan <sas@fsullivans.net>
 Date:   Mon Nov 26 20:02:03 2012 -0600
 
-Added the cell class, got correct output for it, and updated the README
+    Added the cell class, got correct output for it, and updated the README
 
 commit cf75337f083cc4263cda97e05d1e1bd00d5ec815
 Author: Spencer Sullivan <sas@fsullivans.net>
 Date:   Mon Nov 26 20:01:24 2012 -0600
 
-Got Fredkin and Conway Cells printing out correct output
+    Got Fredkin and Conway Cells printing out correct output
 
 commit 932415fbfc6046e2aae388825dbbd8174953ba16
 Author: Spencer Sullivan <sas@fsullivans.net>
 Date:   Mon Nov 26 19:59:11 2012 -0600
 
-Finished AbstractCell and its 2 child cell classes
+    Finished AbstractCell and its 2 child cell classes
 
 commit b24ec8cb16ba1ede8255385cbcb4a08f45895d7c
 Author: Spencer Sullivan <sas@fsullivans.net>
 Date:   Mon Nov 26 19:57:43 2012 -0600
 
-Finished the UML Diagram
+    Finished the UML Diagram
 
 commit f021ddd5aadc5bf148590c0d685be6cc9d650379
 Author: Spencer Sullivan <sas@fsullivans.net>
 Date:   Sun Nov 18 21:06:04 2012 -0600
 
-Added empty placeholders for the rest of the files
+    Added empty placeholders for the rest of the files
 
 commit 219111969fc1a8effabd1c919b6fa87b50a8eeba
 Author: Spencer Sullivan <sas@fsullivans.net>
 Date:   Sat Nov 10 19:23:44 2012 -0600
 
-Initial Commit
+    Initial Commit

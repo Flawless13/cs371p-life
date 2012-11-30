@@ -14,15 +14,22 @@ using namespace std;
 template<typename T>
 class Life
 {
+  // grid of cells
   vector< vector<T> > _grid;
+  // grid of neighbor counts
   vector< vector<int> > neighbor_count;
+  // number of rows in the grid
   int rows;
+  // number of columns in the grid
   int cols;
+  // population of alive cells in the grid
   int population;
+  // output stream to print out to
   ofstream& out_file;
 
   public:
   
+  // default constructor
   Life(ifstream& r, ofstream& w, bool running = false) : 
     out_file(w)
   {
@@ -58,6 +65,7 @@ class Life
     }
   }
 
+  // updates the population and neighbor counts grid
   void update_neighbors()
   {
     for(int i = 0; i < rows; i++)
@@ -79,6 +87,7 @@ class Life
         }
   }
 
+  // steps through the number of iterations of life that you tell it to
   void step(int steps)
   {
     for(int x = 0; x < steps; x++)
@@ -90,6 +99,7 @@ class Life
     }
   }
 
+  // prints out the entire grid
   void print(int generation)
   {
     out_file << "Generation = " << generation << ", Population = " << population <<  "." << endl;

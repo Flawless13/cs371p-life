@@ -12,26 +12,31 @@ using namespace std;
 
 class Cell
 {
+  // pointer that this class is a wrapper for
   AbstractCell* cell_pointer;
 
   public:
 
+  // default constructor
   Cell()
   {
     FredkinCell fc;
     cell_pointer = fc.clone();
   }
 
+  // copy constructor
   Cell(const Cell& c)
   {
     cell_pointer = c.cell_pointer->clone();
   }
 
+  // prints out a char for the state
   char print()
   {
     return cell_pointer->print();
   }
 
+  // evolves the cell one iteration
   void evolve(int alive_neighbors)
   {
     cell_pointer->evolve(alive_neighbors);
@@ -40,6 +45,7 @@ class Cell
       change_state('*');
   }
 
+  // changes the state of the cell based on the character input
   void change_state(char c)
   {
     FredkinCell* fc = dynamic_cast<FredkinCell*>(cell_pointer);
@@ -52,16 +58,19 @@ class Cell
     cell_pointer->change_state(c);
   }
 
+  // returns if the cell is alive or dead
   bool alive()
   {
     return cell_pointer->alive();
   }
 
+  // checks if a cell within change_r rows and change_c columns is this' neighbor
   bool neighbors_contains(int change_r, int change_c)
   {
     return cell_pointer->neighbors_contains(change_r, change_c);
   }
 
+  // destructor
   ~Cell()
   {
     delete cell_pointer;
